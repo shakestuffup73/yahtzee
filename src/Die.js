@@ -3,9 +3,14 @@ import "./Die.css";
 
 class Die extends Component {
 
-  toggleDie = e => {
-    this.props.handleClick(this.props.idx)
+  constructor(props) {
+    super(props)
+    this.toggleDie = this.toggleDie.bind(this)
   }
+
+  toggleDie() {
+    this.props.handleClick(this.props.idx)
+  }  
 
   render() {
     return (
