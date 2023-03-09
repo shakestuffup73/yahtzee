@@ -79,7 +79,8 @@ class ScoreTable extends Component {
                 doScore={evt => doScore("largeStraight", largeStraight.evalRoll)} />
               <RuleRow 
                 name="Yahtzee" 
-                score={scores.yahtzee} 
+                score={scores.yahtzee}
+                description={yahtzee.description} 
                 doScore={evt => doScore("yahtzee", yahtzee.evalRoll)} />
               <RuleRow 
                 name="Chance" 
