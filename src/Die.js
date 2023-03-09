@@ -3,6 +3,7 @@ import "./Die.css";
 
 class Die extends Component {
 
+  
   static defaultProps = {
     numberWords: ['one', 'two', 'three', 'four', 'five', 'six']
   }
@@ -11,14 +12,15 @@ class Die extends Component {
     super(props)
     this.toggleDie = this.toggleDie.bind(this)
   }
-
+  
   toggleDie() {
     this.props.handleClick(this.props.idx)
   }  
-
+  
   render() {
-    let classes = `Die fas fa-dice-${this.props.numberWords[this.props.val-1]} fa-4x `
-    if (this.props.locked) classes += 'Die-locked'
+    const { numberWords, locked, val } = this.props
+    let classes = `Die fas fa-dice-${numberWords[val-1]} fa-4x `
+    if (locked) classes += 'Die-locked'
 
     return (
       <i
