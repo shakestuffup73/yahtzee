@@ -5,7 +5,7 @@ class RuleRow extends Component {
   render() {
 
     const {score, name, doScore, description} = this.props
-    const disabled = score != undefined
+    const disabled = score !== undefined
 
     return (
       <tr className={`RuleRow RuleRow-${
