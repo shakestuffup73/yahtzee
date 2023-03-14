@@ -5,7 +5,8 @@ class Die extends Component {
 
   
   static defaultProps = {
-    numberWords: ['one', 'two', 'three', 'four', 'five', 'six']
+    numberWords: ['one', 'two', 'three', 'four', 'five', 'six'],
+    val: 3,
   }
 
   constructor(props) {

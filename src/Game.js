@@ -4,7 +4,7 @@ import ScoreTable from "./ScoreTable";
 import "./Game.css";
 
 const NUM_DICE = 5;
-const NUM_ROLLS = 3;
+const NUM_ROLLS = 4;
 
 class Game extends Component {
   constructor(props) {
@@ -36,8 +36,12 @@ class Game extends Component {
     this.animateRoll = this.animateRoll.bind(this)
   }
 
+  componentDidMount(){
+    this.animateRoll()
+  }
+
   animateRoll(){
-    this.setState({rolling: true}, () => {
+    this.setState({rolling:true}, () => {
       setTimeout(this.roll, 1000)
     })
   }
@@ -56,7 +60,7 @@ class Game extends Component {
 
   toggleLocked(idx) {
     // toggle whether idx is in locked or not
-    if (this.state.rollsLeft > 0) {
+    if (this.state.rollsLeft > 0 && !this.state.rolling) {
       this.setState(st => ({
         locked: [
           ...st.locked.slice(0, idx),
