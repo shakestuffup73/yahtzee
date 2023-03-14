@@ -78,15 +78,25 @@ class Game extends Component {
       rollsLeft: NUM_ROLLS,
       locked: Array(NUM_DICE).fill(false)
     }));
-    this.roll();
+    this.animateRoll();
+  }
+
+  displayRollInfo(){
+    const messages = [
+      "0 Rolls Left",
+      "1 Roll Left",
+      "2 Rolls Left",
+      "3 Rolls Left",
+      "Starting Game"
+    ] 
+    return messages[this.state.rollsLeft]
   }
 
   render() {
-    return (
+    return ( 
       <div className='Game'>
         <header className='Game-header'>
           <h1 className='App-title'>Yahtzee</h1>
-
           <section className='Game-dice-section'>
             <Dice
               dice={this.state.dice}
@@ -101,7 +111,7 @@ class Game extends Component {
                 disabled={this.state.locked.every(x => x)}
                 onClick={this.animateRoll}
               >
-                {this.state.rollsLeft} Rerolls Left
+                {this.displayRollInfo()}
               </button>
             </div>
           </section>
